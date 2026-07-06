@@ -113,6 +113,11 @@ img { display: block; max-width: 100%; }
 }
 .contact-list a { border-bottom: 1px solid #ddd; transition: border-color 0.25s ease; }
 .contact-list a:hover { border-color: #1a1a1a; }
+/* Instagram link: icon + handle, underline only under the text */
+.contact-list a.ig-link { display: inline-flex; align-items: center; gap: 8px; border-bottom: none; }
+.contact-list a.ig-link .ig-icon { flex: 0 0 auto; }
+.contact-list a.ig-link span { border-bottom: 1px solid #ddd; transition: border-color 0.25s ease; }
+.contact-list a.ig-link:hover span { border-color: #1a1a1a; }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -186,6 +191,9 @@ img { display: block; max-width: 100%; }
   .contact-list li, .contact-list li:last-child, .site-footer { border-color: #262626; }
   .contact-list a { border-color: #333; }
   .contact-list a:hover { border-color: #fff; }
+  .contact-list a.ig-link { border-color: transparent; }
+  .contact-list a.ig-link span { border-color: #333; }
+  .contact-list a.ig-link:hover span { border-color: #fff; }
   .lightbox { background: rgba(10,10,10,0.98); }
   .lightbox-caption { color: #9a9a9a; }
   .lightbox-close, .lightbox-nav { color: #aaa; }
