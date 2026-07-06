@@ -1,0 +1,193 @@
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  color: #1a1a1a;
+  background: #fafafa;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ---------- Layout container ---------- */
+.site-header,
+.portfolio,
+.about,
+.site-footer { max-width: 1200px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.wordmark {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.nav { display: flex; gap: 28px; }
+.nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.nav a:hover { color: #1a1a1a; }
+.nav a.active { color: #1a1a1a; border-color: #1a1a1a; }
+
+/* ---------- Portfolio / gallery (masonry via CSS columns) ---------- */
+.portfolio { padding-bottom: 80px; min-height: 50vh; }
+.gallery {
+  column-count: 3;
+  column-gap: 16px;
+}
+@media (max-width: 900px) { .gallery { column-count: 2; } }
+@media (max-width: 560px) { .gallery { column-count: 1; } }
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  cursor: zoom-in;
+  overflow: hidden;
+  background: #ececec;
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.gallery-item img.loaded { opacity: 1; transform: scale(1); }
+.gallery-item:hover img.loaded { transform: scale(1.03); }
+
+.gallery-loading,
+.gallery-empty {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 0.9rem;
+  padding: 60px 0;
+}
+
+/* ---------- About page ---------- */
+.about { padding-top: 20px; padding-bottom: 100px; max-width: 720px; }
+.about h1, .about h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.about h1 { font-size: 2.6rem; margin: 0 0 24px; }
+.about h2 { font-size: 1.8rem; margin: 56px 0 20px; }
+.about p { font-size: 1.05rem; color: #333; margin: 0 0 20px; }
+.about em { color: #9a7b52; font-style: italic; } /* placeholder highlight */
+
+.contact-list { list-style: none; margin: 0; padding: 0; }
+.contact-list li {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #ececec;
+  font-size: 1rem;
+}
+.contact-list li:last-child { border-bottom: 1px solid #ececec; }
+.contact-label {
+  flex: 0 0 100px;
+  color: #9a9a9a;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+.contact-list a { border-bottom: 1px solid #ddd; transition: border-color 0.25s ease; }
+.contact-list a:hover { border-color: #1a1a1a; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 1px solid #ececec;
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 250, 250, 0.98);
+  padding: 5vh 6vw;
+}
+.lightbox[hidden] { display: none; }
+.lightbox-img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.lightbox-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 0; right: 0;
+  text-align: center;
+  color: #6a6a6a;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #4a4a4a;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.lightbox-close:hover,
+.lightbox-nav:hover { color: #000; }
+.lightbox-close { top: 24px; right: 32px; font-size: 2.4rem; }
+.lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 3rem; padding: 0 20px; }
+.lightbox-prev { left: 8px; }
+.lightbox-next { right: 8px; }
+
+@media (max-width: 560px) {
+  .site-header, .portfolio, .about, .site-footer { padding-left: 20px; padding-right: 20px; }
+  .lightbox-nav { font-size: 2.2rem; padding: 0 8px; }
+}
+
+/* ---------- Optional dark preference (kept subtle) ---------- */
+@media (prefers-color-scheme: dark) {
+  body { background: #111; color: #eaeaea; }
+  .nav a { color: #7a7a7a; }
+  .nav a:hover, .nav a.active { color: #fff; }
+  .nav a.active { border-color: #fff; }
+  .gallery-item { background: #1c1c1c; }
+  .about p { color: #cfcfcf; }
+  .contact-list li, .contact-list li:last-child, .site-footer { border-color: #262626; }
+  .contact-list a { border-color: #333; }
+  .contact-list a:hover { border-color: #fff; }
+  .lightbox { background: rgba(10,10,10,0.98); }
+  .lightbox-caption { color: #9a9a9a; }
+  .lightbox-close, .lightbox-nav { color: #aaa; }
+  .lightbox-close:hover, .lightbox-nav:hover { color: #fff; }
+}

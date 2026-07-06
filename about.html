@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naqsh Nasir — About &amp; Contact</title>
+  <meta name="description" content="About Naqsh Nasir and how to get in touch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Naqsh&nbsp;Nasir</a>
+    <nav class="nav">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html" class="active">About &amp; Contact</a>
+    </nav>
+  </header>
+
+  <main class="about">
+    <section class="about-intro">
+      <h1>About</h1>
+      <!-- TODO: Replace with your own bio. -->
+      <p>
+        I’m a photographer based in <em>[Your City]</em>, drawn to
+        <em>[what you love shooting — light, quiet moments, landscapes, portraits…]</em>.
+        This is a placeholder introduction — replace it with a couple of short
+        paragraphs in your own voice.
+      </p>
+      <p>
+        <em>[A second paragraph: your background, what a viewer should feel,
+        or what kind of work you take on.]</em>
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <!-- TODO: Fill in your real details. Delete any lines you don't want. -->
+        <li><span class="contact-label">Email</span>
+          <a href="mailto:hello@example.com">hello@example.com</a></li>
+        <li><span class="contact-label">Instagram</span>
+          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></li>
+        <li><span class="contact-label">Location</span>
+          <span>[Your City, Country]</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Naqsh Nasir</span>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

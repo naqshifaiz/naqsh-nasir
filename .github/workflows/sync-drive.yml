@@ -1,0 +1,54 @@
+name: Sync photos from Google Drive
+
+on:
+  # Run automatically once an hour.
+  schedule:
+    - cron: "0 * * * *"
+  # Let you trigger it by hand from the Actions tab.
+  workflow_dispatch:
+  # Also refresh whenever the site code changes.
+  push:
+    branches: [main]
+    paths-ignore:
+      - "images/**"
+
+# Allow the workflow to commit the synced images back to the repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: drive-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet Pillow
+
+      - name: Sync from Drive
+        env:
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
+          DRIVE_API_KEY: ${{ secrets.DRIVE_API_KEY }}
+        run: python scripts/sync_drive.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "drive-sync-bot"
+          git config user.email "actions@github.com"
+          git add images
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Sync photos from Google Drive"
+            git push
+          fi
