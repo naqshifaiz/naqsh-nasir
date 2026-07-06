@@ -48,7 +48,19 @@ jobs:
           git add images
           if git diff --cached --quiet; then
             echo "No changes to commit."
-          else
-            git commit -m "Sync photos from Google Drive"
-            git push
+            exit 0
           fi
+          git commit -m "Sync photos from Google Drive"
+          # The remote main may have moved ahead since checkout (a queued run,
+          # a manual push, etc.), which makes a bare push fail with "fetch first".
+          # Rebase our image commit onto the latest main and retry.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); rebasing onto latest main..."
+            git pull --rebase origin main
+          done
+          echo "Failed to push after 5 attempts." >&2
+          exit 1
