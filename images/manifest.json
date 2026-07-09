@@ -1,5 +1,5 @@
 {
-  "count": 23,
+  "count": 20,
   "images": [
     {
       "id": "1yn2DDaYJrI-GAkBwsoqjl206BhN-iUOW",
@@ -90,27 +90,11 @@
       "h": 2200
     },
     {
-      "id": "1LgRGhSCwYjy9kkHTbb8_ZmSRct1NV-_a",
-      "name": "DSC 0374",
-      "file": "images/full/1LgRGhSCwYjy9kkHTbb8_ZmSRct1NV-_a.jpg",
-      "thumb": "images/thumb/1LgRGhSCwYjy9kkHTbb8_ZmSRct1NV-_a.jpg",
-      "w": 1469,
-      "h": 2200
-    },
-    {
       "id": "1JG44SnPpI7mVQ1WLJcIB41PaVrjoCfh3",
       "name": "DSC 0473",
       "file": "images/full/1JG44SnPpI7mVQ1WLJcIB41PaVrjoCfh3.jpg",
       "thumb": "images/thumb/1JG44SnPpI7mVQ1WLJcIB41PaVrjoCfh3.jpg",
       "w": 1487,
-      "h": 2200
-    },
-    {
-      "id": "1zkElnKQyCbuEn9Oe8aPftiVbzuJTulJn",
-      "name": "DSC 0456",
-      "file": "images/full/1zkElnKQyCbuEn9Oe8aPftiVbzuJTulJn.jpg",
-      "thumb": "images/thumb/1zkElnKQyCbuEn9Oe8aPftiVbzuJTulJn.jpg",
-      "w": 1429,
       "h": 2200
     },
     {
@@ -136,14 +120,6 @@
       "thumb": "images/thumb/1MJlYgLD893VV6hxil4SiUlWdedd7knm6.jpg",
       "w": 2200,
       "h": 1454
-    },
-    {
-      "id": "1EcUkuHtsiBmHnSOzXBzLBfoSdtYqPWIq",
-      "name": "DSC 0455",
-      "file": "images/full/1EcUkuHtsiBmHnSOzXBzLBfoSdtYqPWIq.jpg",
-      "thumb": "images/thumb/1EcUkuHtsiBmHnSOzXBzLBfoSdtYqPWIq.jpg",
-      "w": 2200,
-      "h": 1489
     },
     {
       "id": "15aUYEcIv_R8kx5nHBU3-Wq9LlNbjvtGP",
